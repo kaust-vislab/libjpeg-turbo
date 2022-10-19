@@ -9,6 +9,7 @@ cd libjpeg-turbo
 mkdir build
 cd build
 
+
 ### Mac
 ccmake -GNinja -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_OSX_ARCHITECTURES=x86_64 ../.
 
@@ -20,8 +21,7 @@ ccmake -GNinja -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_BUILD_TYPE=RELEASE -DCM
 ### Linux
 ccmake -GNinja -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_BUILD_TYPE=RELEASE ../.
 
-ninja
-ninja install
+ninja; ninja install
 
 
 
