@@ -1,3 +1,30 @@
+Use at KAUST
+==========
+This is a dependancy for building Deflect (desktopstreamer) which we need for Zone 2 when projecting to displaycluster. 
+
+
+## Building 
+git clone https://github.com/kaust-vislab/libjpeg-turbo.git
+cd libjpeg-turbo
+mkdir build
+cd build
+
+### Mac
+ccmake -GNinja -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_OSX_ARCHITECTURES=x86_64 ../.
+
+** we also need to build an arm64 version of this code for a second build of
+Desktopstreamer so that we can support M1 and intel chips **
+
+ccmake -GNinja -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_OSX_ARCHITECTURES=arm64 ../.
+
+### Linux
+ccmake -GNinja -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_BUILD_TYPE=RELEASE ../.
+
+ninja
+ninja install
+
+
+
 Background
 ==========
 
